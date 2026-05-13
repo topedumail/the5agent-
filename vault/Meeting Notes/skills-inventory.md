@@ -60,8 +60,9 @@ type: reference
 
 ## Open Questions
 
-- האם יותקנו skills מותאמים אישית לפרויקט? (למשל `draft-instagram-post` ליעל, `generate-cover-image` ליובל)
+- האם יותקנו skills מותאמים אישית לפרויקט? (למשל `draft-instagram-post` ליעל, `generate-cover-image` ליובל) — skill-creator כבר זמין, ראה [[skill-creator-install]]
 - האם יוגדר skill מותאם לחן עבור research pipeline (Tavily → Firecrawl → סיכום)?
+- 11 ה-skills של example-skills שלא ביקשנו במפורש (algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, frontend-design, internal-comms, mcp-builder, slack-gif-creator, theme-factory, web-artifacts-builder, webapp-testing) פעילים — האם להסיר את ה-plugin כשהצרכים מתבהרים?
 
 ## Session Log
 
@@ -76,3 +77,9 @@ type: reference
 - **Decisions:** דגם של "skill-` prefix" בתוך Meeting Notes שומר על מבנה שטוח (כפי שה-skill דורש) תוך הקלת ניווט לקסיקלי. הכפילות נמחקה בהיתר מפורש של המשתמש ("תסיים מה שהתחלת אני מאפשר").
 - **Notes / Caveats:** ספירת ה-skills בטבלה למעלה צריכה עדכון מ-18 ל-17 בעת קריאת הקובץ הבאה — נטפל אם תידרש עדכון מהותי לטבלה.
 - **Related:** [[skill-obsidian-vault-workflow]], [[skill-obsidian-bases]], [[skill-using-superpowers]], [[obsidian-vault-setup]]
+
+### 2026-05-13 — הוספת plugin example-skills (project scope) [shipped]
+- **What was done:** הותקן `example-skills@anthropic-agent-skills` ב-project scope. הביא 12 skills נוספים, כולל skill-creator. עודכן `.claude/settings.json` (commit `19e6d92`). ראה תיעוד מלא ב-[[skill-creator-install]].
+- **Decisions:** התקנה דרך plugin (לא העתקה ידנית) — שומרת על update semantics. ה-11 skills הנוספים יישארו ישנים אלא אם תיאוריהם תואמים למשימה.
+- **Notes / Caveats:** מספר ה-skills תחת `.claude/skills/` עדיין 17 (Obsidian + Superpowers); ה-12 החדשים יושבים תחת `~/.claude/plugins/.../anthropic-agent-skills/skills/` ולא ב-repo.
+- **Related:** [[skill-creator-install]], [[skill-writing-skills]]

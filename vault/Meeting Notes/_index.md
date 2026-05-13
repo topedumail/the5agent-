@@ -10,6 +10,10 @@
 - [[obsidian-vault-setup]] — תיקיית `.obsidian/` ותיקיית `vault/` — הזיכרון ארוך הטווח של הפרויקט
 - [[skills-inventory]] — מלאי כל היכולות (skills) — סקירה כללית עם טבלה
 
+## Topics — פעולות/התקנות
+
+- [[skill-creator-install]] — התקנת example-skills plugin ב-project scope (כולל skill-creator)
+
 ## Topics — פירוט פר-skill (17)
 
 ### Obsidian (3)
