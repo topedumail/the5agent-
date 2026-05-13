@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "6879ddb5f7977a64",
+    "type": "split",
+    "children": [
+      {
+        "id": "917e10b94c404845",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce499ce6039c6a3b",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "תצוגת גרף"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "530b363cde5b1f54",
+    "type": "split",
+    "children": [
+      {
+        "id": "315b9b0e2c29cd22",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0822a9fa3fce2538",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "סייר קבצים"
+            }
+          },
+          {
+            "id": "5e45f20b94747934",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "לחפש"
+            }
+          },
+          {
+            "id": "f8f06b5c4b5fb33f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "סימניות"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "07c696bbeafb8939",
+    "type": "split",
+    "children": [
+      {
+        "id": "11b707e109d5936a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4184181ffef6c735",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "קישורים נכנסים"
+            }
+          },
+          {
+            "id": "d7d97204a9ca744c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "קישורים יוצאים"
+            }
+          },
+          {
+            "id": "403b857b69ed7b4e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "תגים"
+            }
+          },
+          {
+            "id": "2557fc0162785fb8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "כל המאפיינים"
+            }
+          },
+          {
+            "id": "48e064e18eaf38e4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "מתווה"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:פתח את המחליף המהיר": false,
+      "graph:פתח תצוגת גרף": false,
+      "canvas:צור קנבס חדש": false,
+      "daily-notes:פתח את ההערה של היום": false,
+      "templates:הכנס תבנית": false,
+      "command-palette:פתח את לוח הפקודות": false,
+      "bases:צור בסיס חדש": false
+    }
+  },
+  "active": "ce499ce6039c6a3b",
+  "lastOpenFiles": [
+    "vault/Meeting Notes/skill-writing-skills.md",
+    "vault/Meeting Notes/skill-writing-plans.md",
+    "vault/Meeting Notes/skill-verification-before-completion.md",
+    "vault/Meeting Notes/skill-using-superpowers.md",
+    "vault/Meeting Notes/skill-using-git-worktrees.md",
+    "vault/Meeting Notes/skill-test-driven-development.md",
+    "vault/Meeting Notes/skill-systematic-debugging.md",
+    "vault/Meeting Notes/skill-subagent-driven-development.md",
+    "vault/Meeting Notes/skill-requesting-code-review.md",
+    "vault/Meeting Notes/skill-receiving-code-review.md",
+    "vault/Meeting Notes/skill-obsidian-vault-workflow.md",
+    "vault/Meeting Notes/skill-obsidian-markdown.md",
+    "vault/Meeting Notes/skill-obsidian-bases.md",
+    "vault/Meeting Notes/skill-finishing-a-development-branch.md",
+    "vault/Meeting Notes/skill-executing-plans.md",
+    "vault/Meeting Notes/skill-dispatching-parallel-agents.md",
+    "vault/Meeting Notes/skill-brainstorming.md",
+    "vault/Meeting Notes/skills-inventory.md",
+    "vault/Meeting Notes/obsidian-vault-setup.md",
+    "vault/Meeting Notes/claude-team-config.md",
+    "vault/Meeting Notes/root-config-files.md",
+    "vault/Meeting Notes/project-overview.md",
+    "vault/Meeting Notes/_index.md",
+    "vault/Meeting Notes",
+    "CLAUDE.md",
+    "vault",
+    "‏‏תיקיה חדשה"
+  ]
+}
