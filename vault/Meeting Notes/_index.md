@@ -16,6 +16,7 @@
 - [[yael-agent-definition]] — יצירת ה-sub-agent הראשון (יעל, כותבת התוכן) ב-`.claude/agents/yael.md`
 - [[yael-rewrites]] — לוג של שכתובי מאמרים שיעל ביצעה (Content → Output)
 - [[yuval-agent-definition]] — יצירת sub-agent יובל (מעצב התמונות) + skill `gpt-image-gen` + שילוב עם יעל
+- [[chen-agent-definition]] — יצירת sub-agent חן (חוקרת הרשת) + תיקיית memory + זרימת תוכן חדש מהרשת
 
 ## Topics — פירוט פר-skill (17)
 
