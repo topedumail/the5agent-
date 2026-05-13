@@ -10,9 +10,45 @@
 
 ## הצוות שלי
 
-- **יעל** - כותבת התוכן. אחראית על ניסוח, כתיבה ועריכה של טקסטים.
-- **יובל** - מעצב התמונות. אחראי על יצירה ועיצוב של חומרים ויזואליים.
-- **חן** - החוקרת. אחראית על איסוף מידע, מחקר ובדיקת עובדות.
+- **יעל** - כותבת התוכן. אחראית על ניסוח, כתיבה ועריכה של טקסטים. **מוגדרת** ב-`.claude/agents/yael.md`.
+- **יובל** - מעצב התמונות. אחראי על יצירה ועיצוב של חומרים ויזואליים. **מוגדר** ב-`.claude/agents/yuval.md`.
+- **חן** - החוקרת. אחראית על איסוף מידע, מחקר ובדיקת עובדות. _טרם הוגדרה._
+
+## ניתוב — מתי מפעילים את מי
+
+### יעל (כותבת התוכן)
+- **מתי**: בקשות לכתיבה, שכתוב, עריכה, תרגום, סיכום של טקסטים. במיוחד שכתוב מאמרי גלם מ-`Content/` לסגנון הצוות.
+- **Trigger keywords (עברית)**: שכתב, ערוך, נסח מחדש, תרגם, סכם, מאמר, תוכן, פוסט.
+- **Trigger keywords (English)**: rewrite, edit, rephrase, translate, summarize, article, content, post.
+- **קלט**: `Content/` (מאמרי גלם).
+- **פלט**: `Output/<name>.md` ו-`Output/<name>.html` (שני קבצים בכל ריצה).
+- **כלים**: Read, Write, Edit, Glob, Grep בלבד. **אין** לה Bash, WebSearch, או גישה ל-API.
+
+### יובל (מעצב התמונות)
+- **מתי**: בקשות ליצירת תמונה/איור/ויזואל, או כשיעל סימנה `{{IMAGE_NEEDED: ...}}` במאמר.
+- **Trigger keywords (עברית)**: תמונה של, ציור של, תיצור תמונה, איור, ויזואל, עיצוב.
+- **Trigger keywords (English)**: image of, picture of, generate image, illustration, draw, visual, design.
+- **קלט**: prompt בעברית או באנגלית; דוגמאות סגנון ב-`yuval/reference/`.
+- **פלט**: `yuval/outputs/<YYYY-MM-DD>-<slug>.png` + sibling `.txt` עם ה-prompt ששימש.
+- **כלים**: Read, Write, Bash, Glob (Bash דרוש לקריאת ה-API).
+- **תלות**: skill `gpt-image-gen` (`.claude/skills/gpt-image-gen/`), `OPENAI_API_KEY` ב-`.env`.
+- **מודל יצירת תמונה**: `gpt-image-2` (קבוע. אל תחליף — ראה הערה בסקיל).
+
+### חן
+טרם הוגדרה — `.claude/agents/chen.md` ייווצר בהמשך.
+
+## זרימת עבודה — מאמר עם תמונות
+
+כשמגיעה בקשה ל"שכתב את המאמר X עם תמונות", או כשיעל מחזירה מאמר עם `{{IMAGE_NEEDED: ...}}`:
+
+1. **הפעלת יעל** — תכתוב את המאמר ותסמן placeholders איפה תמונות נדרשות (פורמט `{{IMAGE_NEEDED: "תיאור אנגלי מפורט לעיצוב"}}`).
+2. **קריאת הדיווח של יעל** — אסוף את רשימת ה-placeholders שהשאירה (היא תחזיר אותם בסיכום).
+3. **הפעלת יובל פעם אחת לכל placeholder** (במקביל אם independent) — עם ה-description כ-prompt. יובל יחזיר נתיב `yuval/outputs/<YYYY-MM-DD>-<slug>.png`.
+4. **העתקת התמונות ל-Output/images/** — `cp yuval/outputs/<file>.png Output/images/<file>.png`. צור את `Output/images/` אם לא קיים (`mkdir -p Output/images`).
+5. **שילוב ב-Markdown** של יעל — `Edit` על `Output/<article>.md`: החלף כל `{{IMAGE_NEEDED: "<desc>"}}` ב-`![<desc-short>](images/<file>.png)`.
+6. **שילוב ב-HTML** של יעל — `Edit` על `Output/<article>.html`: החלף כל `{{IMAGE_NEEDED: "<desc>"}}` ב-`<img src="images/<file>.png" alt="<desc-short>" style="max-width:100%;height:auto;margin:1.5rem 0;border-radius:8px;" />`.
+7. **אימות** — ודא ש-`Output/images/` מכיל את כל הקבצים ושאין placeholders שנותרו ב-`.md`/`.html` (Grep על `IMAGE_NEEDED` → ריק).
+8. **דיווח למשתמש** — סיכום של מה שנוצר, נתיבים סופיים, מספר תמונות, אילו references השפיעו על כל אחת.
 
 ## מבנה התיקיות
 
@@ -22,7 +58,12 @@
 - `skills/` - יכולות מותאמות שהסוכנים יכולים להפעיל.
 - `commands/` - פקודות מותאמות (slash commands) להפעלה מהירה של זרימות עבודה.
 
-כרגע התיקיות האלה ריקות - נמלא אותן בהמשך.
+תיקיות עבודה בשורש הפרויקט:
+
+- `Content/` - מאמרי גלם נכנסים שמחכים לעיבוד (working dir של יעל; לא נכנס ל-git).
+- `Output/` - תוצרים סופיים — Markdown, HTML, ו-`images/` (לא נכנס ל-git).
+- `yael/` - תיקיית העבודה של יעל: `style-guide.md` ו-`reference/` עם דוגמאות סגנון.
+- `yuval/` - תיקיית העבודה של יובל: `reference/` (תמונות השראה, ב-git) ו-`outputs/` (תוצרים, לא ב-git).
 
 ## הערה
 

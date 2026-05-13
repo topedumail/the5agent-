@@ -16,13 +16,14 @@ type: project
 - **יובל** (מעצב) — יצירה ועיצוב של חומרים ויזואליים (יכול להשתמש ב-DALL-E).
 - **חן** (חוקרת) — איסוף מידע, מחקר ובדיקת עובדות (יכולה להשתמש ב-Tavily / Firecrawl / SerpAPI).
 
-**מצב נוכחי:** התשתית הראשונית קיימת — `CLAUDE.md` מגדיר את ראובן, תיקיות `.claude/agents`, `.claude/commands` קיימות אך **ריקות**. הסוכנים עצמם (יעל, יובל, חן) טרם הוגדרו כקבצי agent.
+**מצב נוכחי:** **יעל** ([[yael-agent-definition]]) ו-**יובל** ([[yuval-agent-definition]]) הוגדרו (2026-05-13). יובל מצויד ב-skill מותאם `gpt-image-gen` לקריאת OpenAI Images API ([[skill-gpt-image-gen]]). הזרימה המשולבת יעל→יובל מתועדת ב-CLAUDE.md ("זרימת עבודה — מאמר עם תמונות"). חן עדיין לא הוגדרה; `.claude/commands/` עדיין ריק.
 
 ## Open Questions
 
-- מתי ייכתבו קבצי ה-agent של יעל, יובל וחן תחת `.claude/agents/`?
+- מתי ייכתב קובץ ה-agent של **חן** תחת `.claude/agents/`? (יעל ויובל יכולים לשמש תבנית.)
 - אילו slash commands מתוכננים תחת `.claude/commands/` להפעלה מהירה של זרימות עבודה?
-- האם תוגדר זרימת עבודה משולבת (חן→יעל→יובל) כפקודה אחת?
+- האם תוגדר זרימת עבודה משולבת (חן→יעל→יובל) כפקודה אחת? כרגע יעל→יובל מתועד בקובץ CLAUDE.md.
+- מתי יתמלא `yael/style-guide.md` ויאוכלסו דוגמאות ב-`yael/reference/` ו-`yuval/reference/`? עד אז שני הסוכנים פועלים לפי best-practices.
 
 ## Session Log
 
@@ -31,3 +32,15 @@ type: project
 - **Decisions:** ארגון לפי **אזורים** ולא קובץ-לקובץ — קל יותר לנווט ולתחזק. כל קובץ נושא מקשר באמצעות `[[wikilinks]]` לקבצים הקשורים.
 - **Notes / Caveats:** הצוות עצמו (יעל, יובל, חן) טרם הוגדר בפועל — `agents/` ו-`commands/` עדיין מכילים רק `.gitkeep`.
 - **Related:** [[root-config-files]], [[claude-team-config]], [[obsidian-vault-setup]], [[skills-inventory]]
+
+### 2026-05-13 — יעל הוגדרה כ-sub-agent הראשון [shipped]
+- **What was done:** עדכון ה-Overview לשקף שיעל הוגדרה ב-`.claude/agents/yael.md` (פרטים מלאים ב-[[yael-agent-definition]]). הסרת השאלה הגנרית "מתי ייכתבו הסוכנים" והחלפתה בשאלה ממוקדת על יובל וחן. הוספת שאלה חדשה על מילוי `yael/style-guide.md`.
+- **Decisions:** השארת המבנה הקיים של הסעיף — רק עדכון משפט הסטטוס במקום שכתוב מלא.
+- **Notes / Caveats:** בסשן הזה ראובן (אני) הוסיף גם תשתית סביבה: תיקיות `Content/`, `Output/`, `yael/` + עדכוני `CLAUDE.md` ו-`.gitignore`.
+- **Related:** [[yael-agent-definition]], [[claude-team-config]], [[root-config-files]]
+
+### 2026-05-13 — יובל הוגדר + skill מותאם ראשון + שילוב עם יעל [shipped]
+- **What was done:** הוספת הסוכן השני (יובל) + skill מותאם אישית ראשון (`gpt-image-gen`) + שילוב משולש: יעל מסמנת `{{IMAGE_NEEDED: ...}}` placeholders, יובל יוצר תמונות, ראובן משלב ב-Output. פרטים מלאים: [[yuval-agent-definition]], [[skill-gpt-image-gen]].
+- **Decisions:** Sonnet ליובל (heavy lifting ב-OpenAI). `gpt-image-2` כמודל קבוע (לא להחליף בשום מצב — הוראת המשתמש). שילוב התמונות: העתקה ל-`Output/images/` ושימוש בנתיב יחסי, כדי שה-Output יישאר נייד.
+- **Notes / Caveats:** end-to-end test לא בוצע — דורש `OPENAI_API_KEY` תקין וגישה ל-`gpt-image-2` בחשבון. הסוכן `yuval` יידרש restart כדי להירשם ב-Agent registry.
+- **Related:** [[yuval-agent-definition]], [[skill-gpt-image-gen]], [[yael-agent-definition]]

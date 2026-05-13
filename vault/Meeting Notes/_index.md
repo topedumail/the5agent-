@@ -13,6 +13,9 @@
 ## Topics — פעולות/התקנות
 
 - [[skill-creator-install]] — התקנת example-skills plugin ב-project scope (כולל skill-creator)
+- [[yael-agent-definition]] — יצירת ה-sub-agent הראשון (יעל, כותבת התוכן) ב-`.claude/agents/yael.md`
+- [[yael-rewrites]] — לוג של שכתובי מאמרים שיעל ביצעה (Content → Output)
+- [[yuval-agent-definition]] — יצירת sub-agent יובל (מעצב התמונות) + skill `gpt-image-gen` + שילוב עם יעל
 
 ## Topics — פירוט פר-skill (17)
 
@@ -44,3 +47,6 @@
 ### תחזוקת תשתית (2)
 - [[skill-using-superpowers]] — meta: איך למצוא ולהשתמש ב-skills
 - [[skill-writing-skills]] — יצירה ועריכה של skills חדשים
+
+### Skills מותאמים אישית לפרויקט (1)
+- [[skill-gpt-image-gen]] — מעטפת ל-OpenAI Images API (`gpt-image-2`), בשימוש ע"י יובל

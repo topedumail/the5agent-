@@ -29,3 +29,13 @@ venv/
 # Build output
 dist/
 build/
+
+# Working dirs of content agents — keep folder structure (via .gitkeep), ignore content
+Content/*
+!Content/.gitkeep
+Output/*
+!Output/.gitkeep
+
+# Yuval outputs (generated images) — keep folder, ignore content
+yuval/outputs/*
+!yuval/outputs/.gitkeep

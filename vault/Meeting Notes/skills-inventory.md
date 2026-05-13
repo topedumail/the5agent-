@@ -44,6 +44,12 @@ type: reference
 | `writing-skills` | יצירה ועריכה של skills חדשים | תחזוקת תשתית |
 | `using-superpowers` | מטא-skill — איך למצוא ולהשתמש בכל ה-skills | ראובן (בתחילת כל סשן) |
 
+### Skills מותאמים אישית לפרויקט (1)
+
+| Skill | תיאור | למי |
+|---|---|---|
+| `gpt-image-gen` | מעטפת לקריאת OpenAI Images API (`gpt-image-2`). מתעד את ה-curl, נתיבי decoding (jq + python fallback), וטבלת שגיאות. **שם המודל קבוע, אל תחליף.** | יובל ([[yuval-agent-definition]]) |
+
 ### Skills גלובליים (Anthropic, Cowork) — לא ב-`.claude/skills/` אלא ברמת המערכת
 
 | Skill | תיאור |
@@ -83,3 +89,9 @@ type: reference
 - **Decisions:** התקנה דרך plugin (לא העתקה ידנית) — שומרת על update semantics. ה-11 skills הנוספים יישארו ישנים אלא אם תיאוריהם תואמים למשימה.
 - **Notes / Caveats:** מספר ה-skills תחת `.claude/skills/` עדיין 17 (Obsidian + Superpowers); ה-12 החדשים יושבים תחת `~/.claude/plugins/.../anthropic-agent-skills/skills/` ולא ב-repo.
 - **Related:** [[skill-creator-install]], [[skill-writing-skills]]
+
+### 2026-05-13 — Skill מותאם אישית ראשון: gpt-image-gen [shipped]
+- **What was done:** נוספה קטגוריה חדשה לטבלת ה-skills: "Skills מותאמים אישית לפרויקט". ה-skill הראשון בקטגוריה הוא [[skill-gpt-image-gen]] — מעטפת ל-OpenAI Images API ב-`.claude/skills/gpt-image-gen/SKILL.md`. נכתב בשביל יובל ([[yuval-agent-definition]]).
+- **Decisions:** הקטגוריה החדשה תלך ותגדל כשנוסיף עוד skills מותאמים (למשל `draft-instagram-post` ליעל, `research-pipeline` לחן). זה גם מפריד בבירור בין skills מוטמעים (Superpowers, Obsidian, Anthropic) ל-skills שכתבנו בעצמנו עבור הצוות.
+- **Notes / Caveats:** סה"כ skills תחת `.claude/skills/` עכשיו 18 (17 קיימים + gpt-image-gen).
+- **Related:** [[skill-gpt-image-gen]], [[yuval-agent-definition]], [[skill-writing-skills]]
